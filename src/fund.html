@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FUNDS</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+    <script src="fund.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="fund.css">
+</head>
+<body>
+<div class="container">
+    <h1>Funding For Innovators</h1>
+    <button id="newFundBtn" class="btn btn-primary btn-block">New Fund</button><br /><br />
+    <form id="newForm">
+        <div class="form-group row">
+            <label for="fundNum" class="col-sm-2 col-form-label">ID</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="fundNum" placeholder="ID">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="fundBodyName" class="col-sm-2 col-form-label">Fund Body Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="fundBodyName" placeholder="Fund Body Name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="email" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="email" placeholder="Email">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="innovatorName" class="col-sm-2 col-form-label">Innovator Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="innovatorName" placeholder="Innovator Name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="projectName" class="col-sm-2 col-form-label">Project Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="projectName" placeholder="Project Name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="fundAmount" class="col-sm-2 col-form-label">Fund Amount</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="fundAmount" placeholder="Fund Amount">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="fundPlan" class="col-sm-2 col-form-label">Fund Plan</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="fundPlan" placeholder="Fund Plan">
+            </div>
+        </div>
+        <button id="submitDetails" type="submit" class="btn btn-primary">Add Fund Details</button>
+    </form>
+
+    <div id="updateFormDiv">
+        <form id="updateForm">
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <input type="hidden" class="form-control" id="fundId">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="updateNum" class="col-sm-2 col-form-label">ID</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="updateNum" placeholder="ID">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="updateFBName" class="col-sm-2 col-form-label">Fund Body Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="updateFBName" placeholder="Fund Body Name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="updateEmail" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="updateEmail" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="updateIName" class="col-sm-2 col-form-label">Innovator Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="updateIName" placeholder="Innovator Name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="updateProName" class="col-sm-2 col-form-label">Project Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="updateProName" placeholder="Project Name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="updateFundAmount" class="col-sm-2 col-form-label">Fund Amount</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="updateFundAmount" placeholder="Fund Amount">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="updatePlan" class="col-sm-2 col-form-label">Fund Plan</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="updatePlan" placeholder="Fund Plan">
+                </div>
+            </div>
+            <button id="updateFundDetails" type="submit" class="btn btn-primary">Update Details</button>
+        </form>
+    </div>
+    <table id="fundsTable" class="table table-bordered table-hover">
+        <thead>
+        <th>ID</th>
+        <th>Fund Body Name</th>
+        <th>Email</th>
+        <th>Innovator Name</th>
+        <th>Project Name</th>
+        <th>Fund Plan</th>
+        </thead>
+        <tbody id="detailsBody"></tbody>
+    </table>
+</div>
+</body>
+</html>
