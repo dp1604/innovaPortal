@@ -40,6 +40,7 @@
   <p>And you can purchase products as a buyer if you want. </p>
   <p>The other option is able to see the buyers according to their Buyer ID.</p>
   <p>To see those options you can click on slide menu icon.</p>
+  <p>Bootstrap linked locally in other jsp pages.</p>
 </div>
       
   
