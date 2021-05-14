@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Innovator: the star of the system</title>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div id="response">
+    <pre></pre>
+</div>
+<center><h2>Are you an innovator ?</h2></center></br>
+<center><p>Welcome to the Home of Innovators. You are the stars that enlighten everything. Start your explorations with us.</p></center>
+<center><p id="form-instructions">Update fields to update the selected innovator.</p></center>
+</br></br>
+<form id="update-innovator-form">
+    <center>Full Name : <input type="text" id="name" name="name" placeholder="ex : Dinitha Gamage" /></center></br>
+    <input type="password" id="iid" name="iid" hidden/>
+    <center>Home Address : <input type="text" id="address" name="address" placeholder="ex : 3/31, Royal st., Kings town." /></center></br>
+    <center>Email Address : <input type="email" id="email" name="email" placeholder="ex : dinitha@ideahub.lk" /></center></br>
+    <center>Password : <input type="password" id="pass" name="pass" placeholder="ex : pAsSwOrDwItHlOwErAnDuPpErCaSe1" /></center></br>
+    <center>Telephone : <input type="tel" id="tel" name="tel" placeholder="ex : 769349616" /></center></br>
+    <center>Gender : <input type="text" id="gender" name="gender" placeholder="ex : male" /></center></br>
+
+    <center><button type="submit">Submit</button></center></br>
+</form>
+<script>
+    $(document).ready(function(){
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById("iid").value = urlParams.get('iid');
+        document.getElementById("name").value = urlParams.get('name');
+        document.getElementById("address").value = urlParams.get('address');
+        document.getElementById("tel").value = urlParams.get('tel');
+        document.getElementById("email").value = urlParams.get('email');
+        document.getElementById("gender").value = urlParams.get('gender');
+        document.getElementById("pass").value = urlParams.get('pass');
+    });
+    (function($){
+        function processForm( e ){
+            $.ajax({
+                url: 'http://localhost:8080/innovators/add',
+                dataType: 'json',
+                type: 'post',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    "iid":$('#iid').val(),
+                	"name":$('#name').val(),
+                	"address":$('#address').val(),
+                	"email":$('#email').val(),
+                    "pass":$('#pass').val(),
+                    "tel":$('#tel').val(),
+                    "gender":$('#gender').val()
+                }),
+                processData: false,
+                success: function( data, textStatus, jQxhr ){
+                	window.location.href = "inovators_home.html";
+                },
+                error: function( jqXhr, textStatus, errorThrown ){
+                    console.log( errorThrown );
+                    window.location.href = "inovators_home.html";
+                }
+            });
+            e.preventDefault();
+        }
+        $('#register-innovator-form').submit(processForm);
+    })(jQuery);
+</script>
+</body>
+</html>

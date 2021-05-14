@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Innovator: the star of the system</title>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div id="response">
+    <pre></pre>
+</div>
+<center><h2>Are you an innovator ?</h2></center></br>
+<center><p>Welcome to the Home of Innovators. You are the stars that enlighten everything. Start your explorations with us. Join us by registering !</p></center>
+</br>
+<center><div id="innovators-details-div" style="width:50%"></div></center>
+</br></br><center><button id="delete" name="delete">Delete Innovator</button></center>
+<script>
+    $(document).ready(function(){
+        const urlParams = new URLSearchParams(window.location.search);
+        var iid = parseInt(urlParams.get('iid'));
+        var name = urlParams.get('name');
+        var address = urlParams.get('address');
+        var tel = urlParams.get('tel');
+        var email = urlParams.get('email');
+        var gender = urlParams.get('gender');
+        var details = "Name : "+name+"</br>" + "Address : "+address+"</br>" + "Telephone : "+tel+"</br>" + "Email : "+email+"</br>" + "Gender : "+gender+"</br>";
+        details = details + "</br></br><a href='update_innovator.html?iid="+iid+"&name="+name+"&address="+address+"&email="+email+"&tel="+tel+"&gender="+gender+"'>Update Details</a>";
+        document.getElementById("innovators-details-div").innerHTML = details;
+    });
+
+    $("#delete").click(function(e) {
+        const urlParams = new URLSearchParams(window.location.search);
+        var iid = parseInt(urlParams.get('iid'));
+        e.preventDefault();
+        $.ajax({
+            url: 'http://localhost:8080/innovators/delete',
+            dataType: 'json',
+            type: 'post',
+            contentType: 'application/json',
+            data: JSON.stringify({"iid":iid}),
+            processData: false,
+            success: function( data, textStatus, jQxhr ){
+                window.location.href = "inovator.html";
+            },
+            error: function( jqXhr, textStatus, errorThrown ){
+                console.log( errorThrown );
+            }
+        });
+    });
+</script>
+</body>
+</html>
