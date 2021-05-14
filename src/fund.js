@@ -12,7 +12,7 @@ $(document).ready(function(){
     function getFunds(){
         $('#detailsBody').html('');
         $.ajax({
-            url: 'http://localhost:',
+            url: 'http://localhost:8080/fund/all',
             method: 'get',
             dataType: 'json',
             data: {
@@ -41,7 +41,7 @@ $(document).ready(function(){
 
     function getOneFund(id){
         $.ajax({
-            url: 'http://localhost:' + id,
+            url: 'http://localhost:8080/fund/all' + id,
             method: 'get',
             dataType: 'json',
             success: function(data) {
@@ -142,7 +142,7 @@ $(document).ready(function(){
 
     function postFund(data) {
         $.ajax({
-            url: 'http://localhost:',
+            url: 'http://localhost:8080/fund/insert',
             method: 'POST',
             dataType: 'json',
             data: data,
@@ -167,7 +167,7 @@ $(document).ready(function(){
 
     function putFund(id, data){
         $.ajax({
-            url: 'http://localhost:' + id,
+            url: 'http://localhost:8080/fund/update' + id,
             method: 'PUT',
             dataType: 'json',
             data: data,
@@ -200,7 +200,7 @@ $(document).ready(function(){
 
     function deleteFund(id){
         $.ajax({
-            url: 'http://localhost:' + id,
+            url: 'http://localhost:8080/fund/delete' + id,
             method: 'DELETE',
             dataType: 'json',
             success: function(data) {
